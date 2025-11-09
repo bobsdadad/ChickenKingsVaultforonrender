@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -132,14 +132,27 @@
                 <img src="ultrakill.jpg" alt="Ultrakill Cover">
                 <div>Ultrakill</div>
             </a>
-            <a class="game-link" href="omorigame.html">
-                <img src="omori.png" alt="Omori Cover">
-                <div>Omori</div>
+            <a class="game-link" href="deltarunegame.html">
+                <img src="deltarune.png" alt="Deltarune Cover">
+                <div>Deltarune</div>
             </a>
                             <a class="game-link" href="slimerancher.html">
                 <img src="slimerancher.jpg" alt="Slime Rancher Cover">
                 <div>Slime Rancher</div>
             </a>
         </div>
+        <script>
+            (function(){
+                const list = document.querySelector('.game-list');
+                if(!list) return;
+                const items = Array.from(list.querySelectorAll('.game-link'));
+                items.sort((a,b) => {
+                    const ta = (a.textContent || '').trim().toLowerCase();
+                    const tb = (b.textContent || '').trim().toLowerCase();
+                    return ta.localeCompare(tb, undefined, {numeric: true});
+                });
+                items.forEach(i => list.appendChild(i));
+            })();
+        </script>
 </body>
 </html>
